@@ -15,8 +15,8 @@ Vagrant setup for a Kilo Devstack setup running on Ubuntu 14.04
 
 ## What happens?
 1. vagrant will download an Ubuntu 14.04 box
-2. vagrant will launch the box and apply the provisioning step to get devstack/configure/launch devstack
-3. You will end up with a fully running Kilo Devstack environment!  
+2. vagrant will launch the box and apply the provisioning step to get/configure/launch devstack
+3. You will end up with a fully running Kilo Devstack environment
 4. Welcome to OpenStack!
 
 
