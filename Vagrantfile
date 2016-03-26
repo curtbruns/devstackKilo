@@ -91,10 +91,10 @@ Vagrant.configure(2) do |config|
     sudo apt-get -y upgrade 
     sudo apt-get -y install git ntp libsqlite3-dev 
 
-    # Get Devstack and checkout kilo branch
+    # Get Devstack and checkout liberty branch
     git clone https://git.openstack.org/openstack-dev/devstack
     cd devstack
-    git checkout -b stable/kilo origin/stable/kilo
+    git checkout -b stable/liberty origin/stable/liberty
     cp /vagrant/local.conf ~/devstack
 
     # Make Swap Space as Devstack uses quite a bit of memory
