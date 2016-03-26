@@ -6,6 +6,30 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
+
+  # If Proxy is set when provisioning, we set it permanently in each VM
+  # If Proxy is not set when provisioning, we won't set it
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    if ENV["http_proxy"]
+      config.proxy.http    = ENV["http_proxy"]
+    end
+    if ENV["https_proxy"]
+      config.proxy.https   = ENV["https_proxy"]
+    end
+    if ENV["ftp_proxy"]
+      config.proxy.ftp     = ENV["ftp_proxy"]
+    end
+    if ENV["no_proxy"]
+      config.proxy.no_proxy = ENV["no_proxy"]
+    end
+  end
+
+  # Enable caching to speed up package installation for second run
+  # vagrant plugin install vagrant-cachier
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :box
+  end
+
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
